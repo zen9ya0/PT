@@ -15,11 +15,20 @@ net session
 net share
 net config workstation
 net time /domain
+net view /domain(:domain)
+net group /domain / net group "domain computers" /domain
+net accounts /domain
+nltest /domain_trusts
+nltest /DCLIST:domain
+nslookup -type=SRV _ldap._tcp
+netdom query pdc
 netstat -ano
 whoami /all
+dsquery user
 systeminfo
 wmic qfe get Caption,Description,HotFixID,InstalledOn
 wmic share get name,path,status
+wmic useraccount get /all
 route print
 arp -a
 netsh firewall set opmode disable
