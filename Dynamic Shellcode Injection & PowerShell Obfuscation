@@ -1,1 +1,2 @@
-
+PS> Import-Module ./Invoke-Obfuscation.psd1
+PS> Invoke-Obfuscation
