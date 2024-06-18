@@ -1,0 +1,14 @@
+Executables
+ - winPEAS.exe
+ - Seatbelt.exe (compile)
+ - Watson.exe (compile)
+ - SharpUp.exe (compile)
+
+Powershell
+ - Sherlock.ps1
+ - PoweUp.ps1
+ - jaws-enum.ps1
+
+Other
+ - windows-exploit-suggester.py (local)
+ - Exploit suggester (Metasploit)
