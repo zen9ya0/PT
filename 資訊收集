@@ -24,6 +24,12 @@ net config workstation
 獲得網域信任資訊：nltest /domain_trusts 
 查看網域控制站的機器名稱：nltest /DCLIST:domain
 查看網域控制站的主機名稱：nslookup -type=SRV _ldap._tcp
+收集所有活動網域的階級列表：netsess -h;
+FOR /F %i in (dcs.txt) DO @echo [+] Querying DC %i && @netsess -h %i 2>nul > sessions.txt && FOR /F %a in (domain.txt) DO @type sessions.txt | @findstr /I %a
+FOR /F $i in (ips.txt) DO @echo [+] %i && @tasklisy /V /S %i /U user /P password 2>NUL > output.txt && FOR /F %n in (names.txt) DO @type output.txt | findstr %n > NUL && echo [!] %n was found running a process on %i &&  pause
+FOE /F %i in (ips.txt) DO @echo [+] Checking %i && nbtstat -A %i 2>NUL>nbsessions.txt && FOR /F %n in (admin.txt) DO @type nbsessions.txt | findstr /I %n > NUL && echo [!] %n was found logged into %i
+FOR /F %i in (ips.txt) DO @echo [+] Checking %i && nbtscan -f %i 2>NUL>nbsessions.txt && FOR /F %n in (admin.txt) DO @type nbsessions.txt | findstr /I %n > NUL && echo [!] %n was found logged into %i
+
 netstat -ano
 whoami /all
 查看存在的使：用者dsquery user
