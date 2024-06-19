@@ -10,25 +10,27 @@
 查看排程:schtasks /query /fo LIST /v
 查看主機開機時間:net statistics workstation
 net user / net user USER /domain
-net localgroup administrators
-net session
+查詢本機管理員群組使用者:net localgroup administrators
+查詢管理員群組net group "Enterprise Admins" /domain
+net session;psloggedon.exe \\DC
 net share
 net config workstation
-net time /domain
-net view /domain(:domain)
-net group /domain / net group "domain computers" /domain
-net accounts /domain
-nltest /domain_trusts
-nltest /DCLIST:domain
-nslookup -type=SRV _ldap._tcp
-netdom query pdc
+查看當前時間：net time /domain
+查詢網域內所有電腦net view /domain(:domain)
+查詢網域所有使用者群族列表net group /domain
+查詢所有網域成員電腦清單：net group "domain computers" /domain
+查詢所有網域控制站群族：net group "Domain Controllers" /domain ;netdom query pdc
+獲得網域密碼資訊：net accounts /domain
+獲得網域信任資訊：nltest /domain_trusts 
+查看網域控制站的機器名稱：nltest /DCLIST:domain
+查看網域控制站的主機名稱：nslookup -type=SRV _ldap._tcp
 netstat -ano
 whoami /all
-dsquery user
+查看存在的使：用者dsquery user
 systeminfo
 wmic qfe get Caption,Description,HotFixID,InstalledOn
 wmic share get name,path,status
-wmic useraccount get /all
+獲得網域內所有使用者：wmic useraccount get /all
 route print
 arp -a
 netsh firewall set opmode disable
