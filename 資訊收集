@@ -34,7 +34,7 @@ netstat -ano
 whoami /all
 查看存在的使：用者dsquery user
 systeminfo
-wmic qfe get Caption,Description,HotFixID,InstalledOn
+wmic qfe get Caption,Description,HotFixID,InstalledOn|findstr /C:"KB3143141" /C:"KB976902"
 wmic share get name,path,status
 獲得網域內所有使用者：wmic useraccount get /all
 route print
