@@ -53,3 +53,11 @@ wmic path win32_terminalservicesetting where (_CLASS !="") call setallowtsconnec
 wmic /namespace:\\root\cimv2\terminalservice path win32_terminalservicesetting where (_CLASS !="") call setallowtsconnections 1
 wmic /namespace:\\root\cimv2\terminalservice path win32_tsgeneralsetting where (TerminalName='RDP-Tcp') call setuserauthenticationrequired 1
 reg add "HKLM\SYSTEM\CURRENT\CONTROLSET\CONTROL\TERMINAL SERVER" /v fSingleSessionPerUser /t REG_DWORD /d 0 /f
+######################################
+Windows Exploit Suggester
+systeminfo > patches.txt
+./windows-exploit-suggester.py -d 2019-02-02-mssb.xls -i patches.txt
+
+
+
+
